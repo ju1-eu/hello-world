@@ -1,19 +1,18 @@
 CC = gcc
 CFLAGS = -Wall
 SRCS = $(wildcard *.c)
-OBJS = $(SRCS:.c=.o)
-TARGET = main
+TARGETS = $(SRCS:.c=)
 
-all: $(TARGET)
+# Kompiliert jedes .c File zu einem separaten Programm
+all: $(TARGETS)
 
-$(TARGET): $(OBJS)
-    $(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-    $(CC) $(CFLAGS) -c $< -o $@
+$(TARGETS):
+	$(CC) $(CFLAGS) -o $@ $@.c
 
 clean:
-    rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGETS)
 
 test: all
-    ./run_tests.sh
+	./run_tests.sh
+
+.PHONY: all clean test

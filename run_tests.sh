@@ -1,25 +1,44 @@
-# run_tests.sh
-# chmod +x run_tests.sh
-#!/bin/bash
+#!/bin/zsh
 
-# Setzen Sie den Exit-Code auf 0 (Erfolg)
+# Funktion, um ein einzelnes Testprogramm auszuführen
+run_test() {
+    local test=$1
+    local input=$2
+    echo "Running $test..."
+    if [[ -n "$input" ]]; then
+        echo -e "$input" | ./$test
+    else
+        ./$test
+    fi
+    if [ $? -ne 0 ]; then
+        echo "$test Programm ist mit einem Fehler beendet."
+        return 1
+    else
+        echo "$test erfolgreich abgeschlossen."
+        return 0
+    fi
+}
+
+# Hauptlogik
 exit_code=0
 
 # Kompilieren der Programme
-make
+make || exit 1
 
-# Führen Sie jedes Testprogramm aus, das nicht 'main' ist
-for test in $(ls | grep -v main); do
+# Deklaration und Initialisierung des assoziativen Arrays
+typeset -A tests
+tests=(
+    [rechteck_berechnung_v1]="2\n3"
+    [rechteck_berechnung_v2]="2\n3"
+)
+
+# Automatische Erkennung und Ausführung von Testprogrammen
+for test in ${(k)tests}; do
+    input=${tests[$test]}
     if [[ -x "$test" && -f "$test" ]]; then
-        echo "Running $test..."
-        ./$test
-        # Aktualisieren Sie den Exit-Code, falls ein Test fehlschlägt
-        if [ $? -ne 0 ]; then
-            echo "$test Programm ist mit einem Fehler beendet."
-            exit_code=1
-        fi
+        run_test $test "$input" || exit_code=1
     fi
 done
 
-# Beenden Sie das Skript mit dem entsprechenden Exit-Code
 exit $exit_code
+
