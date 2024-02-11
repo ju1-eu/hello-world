@@ -1,0 +1,19 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Eine kurze Beschreibung Ihres Projekts. Dies sollte das Hauptziel und den Zweck Ihres Projekts klar umreißen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "(./run_tests.sh)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ju1-eu/hello-world.git"
+  },
+  "author": " (Jan Unger)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ju1-eu/hello-world/issues"
+  },
+  "homepage": "https://github.com/ju1-eu/hello-world#readme"
+}
