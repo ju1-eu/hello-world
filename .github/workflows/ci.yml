@@ -13,8 +13,6 @@ jobs:
           brew update
           brew install cppcheck doxygen clang-format
           brew install --cask basictex  # LaTeX to PDF conversion
-          sudo tlmgr update --self
-          sudo tlmgr install latexmk
 
       - name: Add TeX Live to PATH
         run: echo "/usr/local/texlive/$(basename $(ls -d /usr/local/texlive/* | grep -E '^[0-9]{4}$' | sort | tail -n 1))/bin/universal-darwin" >> $GITHUB_PATH
