@@ -12,9 +12,7 @@ jobs:
         run: |
           brew update
           brew install cppcheck doxygen clang-format
-
-      - name: Add TeX Live to PATH
-        run: echo "/usr/local/texlive/2023/bin/universal-darwin" >> $GITHUB_PATH
+          echo "/usr/local/texlive/2023/bin/universal-darwin" >> $GITHUB_PATH
 
       - name: Build
         run: make
@@ -30,6 +28,7 @@ jobs:
 
       - name: Generate PDF from LaTeX
         run: |
+          export PATH=$PATH:/usr/local/texlive/2023/bin/universal-darwin
           cd Dokumentation/latex/
           make
         shell: bash
