@@ -12,7 +12,6 @@ jobs:
         run: |
           brew update
           brew install cppcheck doxygen clang-format
-          echo "/usr/local/texlive/2023/bin/universal-darwin" >> $GITHUB_PATH
 
       - name: Build
         run: make
@@ -26,11 +25,16 @@ jobs:
       - name: Generate documentation
         run: doxygen Doxyfile
 
+      - name: Check pdflatex
+        run: |
+            ls -l /usr/local/texlive/2023/bin/universal-darwin/
+            /usr/local/texlive/2023/bin/universal-darwin/pdflatex --version
+
       - name: Generate PDF from LaTeX
         run: |
-          export PATH=$PATH:/usr/local/texlive/2023/bin/universal-darwin
-          cd Dokumentation/latex/
-          make
+            export PATH="/usr/local/texlive/2023/bin/universal-darwin:$PATH"
+            cd Dokumentation/latex/
+            make
         shell: bash
 
       - name: Code Quality Check
@@ -64,4 +68,3 @@ jobs:
         with:
           name: pdf-documentation
           path: Dokumentation/latex/refman.pdf
-
