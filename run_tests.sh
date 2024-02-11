@@ -1,44 +1,61 @@
-#!/bin/zsh
+# run_tests.sh
+# chmod +x run_tests.sh
+#!/bin/bash
 
 # Funktion, um ein einzelnes Testprogramm auszuführen
 run_test() {
     local test=$1
     local input=$2
-    echo "Running $test..."
+    echo "Starte Test für: $test..."
     if [[ -n "$input" ]]; then
+        echo "Eingabe: $input"
         echo -e "$input" | ./$test
     else
         ./$test
     fi
-    if [ $? -ne 0 ]; then
-        echo "$test Programm ist mit einem Fehler beendet."
-        return 1
-    else
+    if [ $? -eq 0 ]; then
         echo "$test erfolgreich abgeschlossen."
-        return 0
+    else
+        echo "FEHLER in $test."
+        exit_code=1
     fi
+    echo "-----------------------------------"
 }
 
-# Hauptlogik
+echo "Beginne Testprozess..."
+
+# Initialisiere Exit-Code
 exit_code=0
 
-# Kompilieren der Programme
-make || exit 1
+# Kompilieren der Programme, wenn nötig
+if ! make; then
+    echo "Kompilierung fehlgeschlagen."
+    exit 1
+fi
 
-# Deklaration und Initialisierung des assoziativen Arrays
-typeset -A tests
-tests=(
-    [rechteck_berechnung_v1]="2\n3"
-    [rechteck_berechnung_v2]="2\n3"
+# Deklaration und Initialisierung des assoziativen Arrays für Testfälle
+declare -A tests=(
+    ["rechteck_berechnung_v1"]="2\n3"
+    ["rechteck_berechnung_v2"]="2\n3"
 )
 
-# Automatische Erkennung und Ausführung von Testprogrammen
-for test in ${(k)tests}; do
+# Durchlaufe alle Testprogramme
+for test in "${!tests[@]}"; do
     input=${tests[$test]}
+    # Überprüfe, ob das Testprogramm ausführbar und vorhanden ist
     if [[ -x "$test" && -f "$test" ]]; then
-        run_test $test "$input" || exit_code=1
+        run_test $test "$input"
+    else
+        echo "Testprogramm $test nicht gefunden oder nicht ausführbar."
+        exit_code=1
     fi
 done
 
-exit $exit_code
+# Gib den Gesamt-Exit-Code zurück
+if [ $exit_code -eq 0 ]; then
+    echo "Alle Tests erfolgreich abgeschlossen."
+else
+    echo "Einige Tests sind fehlgeschlagen."
+fi
 
+exit $exit_code

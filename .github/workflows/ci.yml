@@ -2,20 +2,38 @@ name: C CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
-
+  build_and_test:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        brew install cppcheck
+        brew install clang-format
+        brew install doxygen
 
     - name: Build project
       run: make all
 
     - name: Run tests
       run: make test
+
+    - name: Generate Documentation
+      run: make docs
+
+    - name: Check Code Quality
+      run: make quality
+
+    - name: Check Code Format
+      run: make check_format
+

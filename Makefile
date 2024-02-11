@@ -5,6 +5,9 @@
 # make DEBUG=1 // für den Debug-Modus
 # make DEBUG=0 // Release-Modus
 # make clean
+# make docs
+# make quality
+# make check_format
 
 # Einstellung für Debug-Modus, standardmäßig auf 1 gesetzt
 DEBUG ?= 1
@@ -23,11 +26,11 @@ TARGETS = $(SRCS:.c=)
 
 # Bedingte Einstellungen basierend auf dem DEBUG-Flag
 ifeq ($(DEBUG), 1)
-	CFLAGS += -g3
-	TARGETS := $(addsuffix Debug, $(TARGETS))
+    CFLAGS += -g3
+    TARGETS := $(addsuffix Debug, $(TARGETS))
 else
-	CFLAGS += -O2
-	TARGETS := $(addsuffix Release, $(TARGETS))
+    CFLAGS += -O2
+    TARGETS := $(addsuffix Release, $(TARGETS))
 endif
 
 # Hauptziel
@@ -47,8 +50,16 @@ clean:
 
 # Test-Regel hinzugefügt, um das Testskript auszuführen
 test: all
-	./run_tests.sh
+	./run_tests.sh > test_results.txt
+
+docs:
+	doxygen Doxyfile
+
+quality:
+	cppcheck --enable=all --suppress=missingIncludeSystem $(SRCS)
+
+check_format:
+	clang-format -i $(SRCS) -style=file
 
 # Spezielle Ziele, die keine Dateien sind
-.PHONY: all clean test
-
+.PHONY: all clean test docs quality check_format
