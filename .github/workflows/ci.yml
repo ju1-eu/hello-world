@@ -6,47 +6,48 @@ jobs:
   build-and-test:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Setup environment
-      run: |
-        brew update
-        brew install cppcheck doxygen clang-format
+      - name: Setup environment
+        run: |
+          brew update
+          brew install cppcheck doxygen clang-format
 
-    - name: Build
-      run: make
+      - name: Build
+        run: make
 
-    - name: Run tests
-      run: |
-        chmod +x ./run_tests.sh
-        ./run_tests.sh > test_results.txt
-      shell: bash
+      - name: Run tests
+        run: |
+          chmod +x ./run_tests.sh
+          ./run_tests.sh > test_results.txt
+        shell: bash
 
-    - name: Generate documentation
-      run: doxygen Doxyfile
+      - name: Generate documentation
+        run: doxygen Doxyfile
 
-    - name: Code Quality Check
-      run: cppcheck --enable=all --suppress=missingIncludeSystem $(find . -name '*.c')
+      - name: Code Quality Check
+        run: cppcheck --enable=all --suppress=missingIncludeSystem $(find . -name '*.c')
 
-    - name: Check Format
-      run: |
-        FILES=$(find . -name '*.c' -or -name '*.h')
-        clang-format -i $FILES -style=file
+      - name: Check Format
+        run: |
+          FILES=$(find . -name '*.c' -or -name '*.h')
+          clang-format -i $FILES -style=file
 
-    - name: Upload Test Results
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: test_results.txt
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: test_results.txt
 
-    - name: Upload HTML Documentation
-    uses: actions/upload-artifact@v2
-    with:
-        name: html-documentation
-        path: Dokumentation/html/
+      - name: Upload HTML Documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: html-documentation
+          path: Dokumentation/html/
 
-    - name: Upload LaTeX Documentation
-    uses: actions/upload-artifact@v2
-    with:
-        name: latex-documentation
-        path: Dokumentation/latex/
+      - name: Upload LaTeX Documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: latex-documentation
+          path: Dokumentation/latex/
+
