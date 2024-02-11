@@ -13,12 +13,12 @@ jobs:
           brew update
           brew install cppcheck doxygen clang-format
 
-      - name: Install BasicTeX
+      - name: Install BasicTeX and additional LaTeX packages
         run: |
             brew install --cask basictex
             sudo /Library/TeX/texbin/tlmgr path add
             sudo tlmgr update --self
-            sudo tlmgr install latexmk
+            sudo tlmgr install latexmk varwidth  # Add any other packages your LaTeX documents depend on
             echo "/Library/TeX/texbin" >> $GITHUB_PATH
 
       - name: Build
@@ -65,3 +65,4 @@ jobs:
         with:
           name: latex-documentation
           path: Dokumentation/latex/
+
