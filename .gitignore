@@ -1,17 +1,8 @@
 # .gitignore
 
-datentypen_genauigkeit_berechnen
-datentypen_groessen
-datentypen_max_min
-datentypen_ueberlauf
-explizite_konvertierung
-hallo-welt
-implizite_konvertierung
-main
-rechteck_berechnung_v1
-rechteck_berechnung_v2
-variablen_datentypen
-variablen_und_rechenoperationen
+*Release
+*Debug
+*.dSYM/
 
 # Ignorieren von Log-Dateien
 *.log
