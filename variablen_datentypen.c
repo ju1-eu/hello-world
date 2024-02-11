@@ -23,36 +23,37 @@
  * erfolgreiche Ausführung anzeigt.
  */
 int main(void) {
-  // Deklaration und Initialisierung von Variablen verschiedener Datentypen
-  int meinInteger = 10;           ///< Integer-Variable.
-  char meinChar = 'A';            ///< Zeichen-Variable.
-  short meinShort = 20;           ///< Kurze Integer-Variable.
-  long meinLong = 1000;           ///< Lange Integer-Variable.
-  long long meinLongLong = 50000; ///< Sehr lange Integer-Variable.
-  float meinFloat = 10.5;         ///< Fließkommazahl-Variable.
-  double meinDouble =
-      20.99; ///< Fließkommazahl-Variable mit doppelter Genauigkeit.
-  long double meinLongDouble =
-      100.12345; ///< Fließkommazahl-Variable mit erweiterter Genauigkeit.
+    // Deklaration und Initialisierung von Variablen verschiedener Datentypen
+    int meinInteger = 10;            ///< Integer-Variable.
+    char meinChar = 'A';             ///< Zeichen-Variable.
+    short meinShort = 20;            ///< Kurze Integer-Variable.
+    long meinLong = 1000;            ///< Lange Integer-Variable.
+    long long meinLongLong = 50000;  ///< Sehr lange Integer-Variable.
+    float meinFloat = 10.5;          ///< Fließkommazahl-Variable.
+    double meinDouble =
+        20.99;  ///< Fließkommazahl-Variable mit doppelter Genauigkeit.
+    long double meinLongDouble =
+        100.12345;  ///< Fließkommazahl-Variable mit erweiterter Genauigkeit.
 
-  // Deklaration einer Konstanten
-  const int MEINE_KONSTANTE = 100; ///< Konstante Integer-Variable.
+    // Deklaration einer Konstanten
+    const int MEINE_KONSTANTE = 100;  ///< Konstante Integer-Variable.
 
-  // Deklaration und Initialisierung eines Zeigers
-  int *zeigerAufInteger = &meinInteger; ///< Zeiger auf eine Integer-Variable.
+    // Deklaration und Initialisierung eines Zeigers auf eine konstante
+    // Integer-Variable
+    const int *zeigerAufInteger = &meinInteger;
 
-  // Ausgabe der Werte
-  printf("Integer: %d\n", meinInteger);
-  printf("Char: %c\n", meinChar);
-  printf("Short: %d\n", meinShort);
-  printf("Long: %ld\n", meinLong);
-  printf("Long Long: %lld\n", meinLongLong);
-  printf("Float: %f\n", meinFloat);
-  printf("Double: %f\n", meinDouble);
-  printf("Long Double: %Lf\n", meinLongDouble);
-  printf("Konstante: %d\n", MEINE_KONSTANTE);
-  printf("Wert des Zeigers: %d\n", *zeigerAufInteger);
-  printf("Adresse des Zeigers: %p\n", (void *)zeigerAufInteger);
+    // Ausgabe der Werte
+    printf("Integer: %d\n", meinInteger);
+    printf("Char: %c\n", meinChar);
+    printf("Short: %d\n", meinShort);
+    printf("Long: %ld\n", meinLong);
+    printf("Long Long: %lld\n", meinLongLong);
+    printf("Float: %f\n", meinFloat);
+    printf("Double: %f\n", meinDouble);
+    printf("Long Double: %Lf\n", meinLongDouble);
+    printf("Konstante: %d\n", MEINE_KONSTANTE);
+    printf("Wert des Zeigers: %d\n", *zeigerAufInteger);
+    printf("Adresse des Zeigers: %p\n", (void *)zeigerAufInteger);
 
-  return 0;
+    return 0;
 }

@@ -22,25 +22,25 @@
  * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
  */
 int main(void) {
-  float seite_a = 0.0F;        ///< Länge der Seite a des Rechtecks.
-  float seite_b = 0.0F;        ///< Länge der Seite b des Rechtecks.
-  float umfang = 0.0F;         ///< Berechneter Umfang des Rechtecks.
-  float flaecheninhalt = 0.0F; ///< Berechneter Flächeninhalt des Rechtecks.
+    float seite_a = 0.0F;         ///< Länge der Seite a des Rechtecks.
+    float seite_b = 0.0F;         ///< Länge der Seite b des Rechtecks.
+    float umfang = 0.0F;          ///< Berechneter Umfang des Rechtecks.
+    float flaecheninhalt = 0.0F;  ///< Berechneter Flächeninhalt des Rechtecks.
 
-  // Benutzeraufforderung und Eingabe
-  printf("Berechnet den Umfang und Fläche eines Rechtecks\n");
-  printf("Eingabe Zahl 1 = ");
-  scanf("%f", &seite_a);
-  printf("Eingabe Zahl 2 = ");
-  scanf("%f", &seite_b);
+    // Benutzeraufforderung und Eingabe
+    printf("Berechnet den Umfang und Fläche eines Rechtecks\n");
+    printf("Eingabe Zahl 1 = ");
+    scanf("%f", &seite_a);
+    printf("Eingabe Zahl 2 = ");
+    scanf("%f", &seite_b);
 
-  // Berechnung des Umfangs und Flächeninhalts
-  umfang = 2 * seite_a + 2 * seite_b;
-  flaecheninhalt = seite_a * seite_b;
+    // Berechnung des Umfangs und Flächeninhalts
+    umfang = 2 * seite_a + 2 * seite_b;
+    flaecheninhalt = seite_a * seite_b;
 
-  // Ausgabe der Ergebnisse
-  printf("Umfang: %f\n", umfang);
-  printf("Flächeninhalt: %f\n\n", flaecheninhalt);
+    // Ausgabe der Ergebnisse
+    printf("Umfang: %f\n", umfang);
+    printf("Flächeninhalt: %f\n\n", flaecheninhalt);
 
-  return 0;
+    return 0;
 }

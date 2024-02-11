@@ -20,10 +20,10 @@
  * nicht fehlschlagen.
  */
 void bereinigeEingabePuffer() {
-  int c;
-  while ((c = getchar()) != '\n' && c != EOF) {
-    // Nichts tun, nur aus dem Puffer entfernen
-  }
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        // Nichts tun, nur aus dem Puffer entfernen
+    }
 }
 
 /**
@@ -38,36 +38,38 @@ void bereinigeEingabePuffer() {
  * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
  */
 int main(void) {
-  float seite_a = 0.0F;        ///< Länge der Seite A des Rechtecks.
-  float seite_b = 0.0F;        ///< Länge der Seite B des Rechtecks.
-  float umfang = 0.0F;         ///< Berechneter Umfang des Rechtecks.
-  float flaecheninhalt = 0.0F; ///< Berechneter Flächeninhalt des Rechtecks.
+    float seite_a = 0.0F;         ///< Länge der Seite A des Rechtecks.
+    float seite_b = 0.0F;         ///< Länge der Seite B des Rechtecks.
+    float umfang = 0.0F;          ///< Berechneter Umfang des Rechtecks.
+    float flaecheninhalt = 0.0F;  ///< Berechneter Flächeninhalt des Rechtecks.
 
-  printf("Berechnet den Umfang und die Fläche eines Rechtecks\n");
+    printf("Berechnet den Umfang und die Fläche eines Rechtecks\n");
 
-  // Eingabe und Validierung für Seite A
-  printf("Geben Sie die Länge der Seite A ein (positive Dezimalzahl): ");
-  while (scanf("%f", &seite_a) != 1 || seite_a <= 0) {
-    printf(
-        "Ungültige Eingabe! Bitte geben Sie eine positive Dezimalzahl ein: ");
-    bereinigeEingabePuffer(); // Bereinigt den Eingabepuffer
-  }
+    // Eingabe und Validierung für Seite A
+    printf("Geben Sie die Länge der Seite A ein (positive Dezimalzahl): ");
+    while (scanf("%f", &seite_a) != 1 || seite_a <= 0) {
+        printf(
+            "Ungültige Eingabe! Bitte geben Sie eine positive Dezimalzahl "
+            "ein: ");
+        bereinigeEingabePuffer();  // Bereinigt den Eingabepuffer
+    }
 
-  // Eingabe und Validierung für Seite B
-  printf("Geben Sie die Länge der Seite B ein (positive Dezimalzahl): ");
-  while (scanf("%f", &seite_b) != 1 || seite_b <= 0) {
-    printf(
-        "Ungültige Eingabe! Bitte geben Sie eine positive Dezimalzahl ein: ");
-    bereinigeEingabePuffer(); // Bereinigt den Eingabepuffer
-  }
+    // Eingabe und Validierung für Seite B
+    printf("Geben Sie die Länge der Seite B ein (positive Dezimalzahl): ");
+    while (scanf("%f", &seite_b) != 1 || seite_b <= 0) {
+        printf(
+            "Ungültige Eingabe! Bitte geben Sie eine positive Dezimalzahl "
+            "ein: ");
+        bereinigeEingabePuffer();  // Bereinigt den Eingabepuffer
+    }
 
-  // Berechnung des Umfangs und der Fläche
-  umfang = 2 * (seite_a + seite_b);
-  flaecheninhalt = seite_a * seite_b;
+    // Berechnung des Umfangs und der Fläche
+    umfang = 2 * (seite_a + seite_b);
+    flaecheninhalt = seite_a * seite_b;
 
-  // Ausgabe der Ergebnisse
-  printf("Umfang: %.1f\n", umfang);
-  printf("Flächeninhalt: %.1f\n\n", flaecheninhalt);
+    // Ausgabe der Ergebnisse
+    printf("Umfang: %.1f\n", umfang);
+    printf("Flächeninhalt: %.1f\n\n", flaecheninhalt);
 
-  return 0;
+    return 0;
 }

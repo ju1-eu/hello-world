@@ -22,22 +22,22 @@
  * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
  */
 int main(void) {
-  // Ganzzahlige Datentypen
-  printf("Bereich von int: %d bis %d\n", INT_MIN, INT_MAX);
-  printf("Bereich von unsigned int: 0 bis %u\n", UINT_MAX);
-  printf("Bereich von char: %d bis %d\n", CHAR_MIN, CHAR_MAX);
-  printf("Bereich von unsigned char: 0 bis %d\n", UCHAR_MAX);
-  printf("Bereich von short: %d bis %d\n", SHRT_MIN, SHRT_MAX);
-  printf("Bereich von unsigned short: 0 bis %d\n", USHRT_MAX);
-  printf("Bereich von long: %ld bis %ld\n", LONG_MIN, LONG_MAX);
-  printf("Bereich von unsigned long: 0 bis %lu\n", ULONG_MAX);
-  printf("Bereich von long long: %lld bis %lld\n", LLONG_MIN, LLONG_MAX);
-  printf("Bereich von unsigned long long: 0 bis %llu\n", ULLONG_MAX);
+    // Ganzzahlige Datentypen
+    printf("Bereich von int: %ld bis %ld\n", (long)INT_MIN, (long)INT_MAX);
+    printf("Bereich von unsigned int: 0 bis %lu\n", (unsigned long)UINT_MAX);
+    printf("Bereich von char: %d bis %d\n", CHAR_MIN, CHAR_MAX);
+    printf("Bereich von unsigned char: 0 bis %u\n", (unsigned)UCHAR_MAX);
+    printf("Bereich von short: %d bis %d\n", SHRT_MIN, SHRT_MAX);
+    printf("Bereich von unsigned short: 0 bis %u\n", (unsigned)USHRT_MAX);
+    printf("Bereich von long: %ld bis %ld\n", LONG_MIN, LONG_MAX);
+    printf("Bereich von unsigned long: 0 bis %lu\n", ULONG_MAX);
+    printf("Bereich von long long: %lld bis %lld\n", LLONG_MIN, LLONG_MAX);
+    printf("Bereich von unsigned long long: 0 bis %llu\n", ULLONG_MAX);
 
-  // Fließkommadatentypen
-  printf("Bereich von float: %e bis %e\n", FLT_MIN, FLT_MAX);
-  printf("Bereich von double: %e bis %e\n", DBL_MIN, DBL_MAX);
-  printf("Bereich von long double: %Le bis %Le\n", LDBL_MIN, LDBL_MAX);
+    // Fließkommadatentypen
+    printf("Bereich von float: %e bis %e\n", FLT_MIN, FLT_MAX);
+    printf("Bereich von double: %e bis %e\n", DBL_MIN, DBL_MAX);
+    printf("Bereich von long double: %Le bis %Le\n", LDBL_MIN, LDBL_MAX);
 
-  return 0;
+    return 0;
 }

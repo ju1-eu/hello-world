@@ -18,6 +18,6 @@
  * Beenden.
  */
 int main() {
-  printf("Hallo Welt\n"); // Ausgabe der Grußnachricht
-  return 0;               // Erfolgreicher Exit-Code
+    printf("Hallo Welt\n");  // Ausgabe der Grußnachricht
+    return 0;                // Erfolgreicher Exit-Code
 }

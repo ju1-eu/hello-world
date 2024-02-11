@@ -22,16 +22,16 @@
  * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
  */
 int main(void) {
-  int meinInt = 5;       // Originaler int-Wert
-  float meinFloat = 6.7; // Originaler float-Wert
-  float summe;           // Variable für die Summe
+    int meinInt = 5;        // Originaler int-Wert
+    float meinFloat = 6.7;  // Originaler float-Wert
+    float summe;            // Variable für die Summe
 
-  // Implizite Konvertierung von int zu float während der Addition
-  summe = meinInt + meinFloat; // meinInt wird implizit zu float konvertiert
+    // Implizite Konvertierung von int zu float während der Addition
+    summe = meinInt + meinFloat;  // meinInt wird implizit zu float konvertiert
 
-  printf("Int-Wert: %d\n", meinInt);
-  printf("Float-Wert: %f\n", meinFloat);
-  printf("Summe: %f\n", summe);
+    printf("Int-Wert: %d\n", meinInt);
+    printf("Float-Wert: %f\n", meinFloat);
+    printf("Summe: %f\n", summe);
 
-  return 0;
+    return 0;
 }

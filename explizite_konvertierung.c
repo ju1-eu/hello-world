@@ -20,14 +20,14 @@
  * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
  */
 int main(void) {
-  double meinDouble = 9.87654321; // Originaler double-Wert
-  int meinInt;                    // Variable für den konvertierten Wert
+    double meinDouble = 9.87654321;  // Originaler double-Wert
+    int meinInt;                     // Variable für den konvertierten Wert
 
-  // Explizite Konvertierung von double zu int
-  meinInt = (int)meinDouble; // Casting
+    // Explizite Konvertierung von double zu int
+    meinInt = (int)meinDouble;  // Casting
 
-  printf("Originaler double-Wert: %f\n", meinDouble);
-  printf("Konvertierter int-Wert: %d\n", meinInt);
+    printf("Originaler double-Wert: %f\n", meinDouble);
+    printf("Konvertierter int-Wert: %d\n", meinInt);
 
-  return 0;
+    return 0;
 }

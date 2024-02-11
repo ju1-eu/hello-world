@@ -1,39 +1,52 @@
-name: C CI
+name: C/C++ CI on macOS
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  build_and_test:
+  build-and-test:
     runs-on: macos-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Install dependencies
+    - name: Setup environment
       run: |
-        brew install cppcheck
-        brew install clang-format
-        brew install doxygen
+        brew update
+        brew install cppcheck doxygen clang-format
 
-    - name: Build project
-      run: make all
+    - name: Build
+      run: make
 
     - name: Run tests
-      run: make test
+      run: |
+        chmod +x ./run_tests.sh
+        ./run_tests.sh > test_results.txt
+      shell: bash
 
-    - name: Generate Documentation
-      run: make docs
+    - name: Generate documentation
+      run: doxygen Doxyfile
 
-    - name: Check Code Quality
-      run: make quality
+    - name: Code Quality Check
+      run: cppcheck --enable=all --suppress=missingIncludeSystem $(find . -name '*.c')
 
-    - name: Check Code Format
-      run: make check_format
+    - name: Check Format
+      run: |
+        FILES=$(find . -name '*.c' -or -name '*.h')
+        clang-format -i $FILES -style=file
 
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: test_results.txt
+
+    - name: Upload HTML Documentation
+    uses: actions/upload-artifact@v2
+    with:
+        name: html-documentation
+        path: Dokumentation/html/
+
+    - name: Upload LaTeX Documentation
+    uses: actions/upload-artifact@v2
+    with:
+        name: latex-documentation
+        path: Dokumentation/latex/

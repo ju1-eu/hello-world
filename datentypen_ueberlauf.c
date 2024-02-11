@@ -22,17 +22,17 @@
  * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
  */
 int main(void) {
-  // Deklaration eines unsigned short
-  unsigned short uShort = USHRT_MAX - 2; // Setzen nahe am maximalen Wert
+    // Deklaration eines unsigned short
+    unsigned short uShort = USHRT_MAX - 2;  // Setzen nahe am maximalen Wert
 
-  // Ausgabe der Anfangswerte
-  printf("Anfangswert von Short: %hu\n", uShort);
+    // Ausgabe der Anfangswerte
+    printf("Anfangswert von Short: %hu\n", uShort);
 
-  // Erhöhung und Ausgabe der Werte, um Überlauf zu demonstrieren
-  for (int i = 0; i < 5; i++) {
-    uShort++; // Erhöhen des Werts
-    printf("Aktueller Wert von uShort: %hu\n", uShort);
-  }
+    // Erhöhung und Ausgabe der Werte, um Überlauf zu demonstrieren
+    for (int i = 0; i < 5; i++) {
+        uShort++;  // Erhöhen des Werts
+        printf("Aktueller Wert von uShort: %hu\n", uShort);
+    }
 
-  return 0;
+    return 0;
 }
