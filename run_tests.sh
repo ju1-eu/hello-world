@@ -38,11 +38,30 @@ for i in "${!tests[@]}"; do
     echo "-----------------------------------"
 done
 
+# Generiere PDF aus LaTeX, wenn alle Tests erfolgreich waren
+if [ $exit_code -eq 0 ]; then
+    echo "Beginne mit der Erstellung der PDF-Dokumentation..."
+
+    # Wechsle ins Verzeichnis der LaTeX-Quellen
+    cd Dokumentation/latex/
+
+    # Führe make aus, um die PDF zu erstellen
+    if ! make; then
+        echo "Erstellung der PDF-Dokumentation fehlgeschlagen."
+        exit_code=1
+    else
+        echo "PDF-Dokumentation erfolgreich erstellt."
+    fi
+
+    # Zurück zum ursprünglichen Verzeichnis
+    cd -
+fi
+
 # Gib den Gesamt-Exit-Code zurück
 if [ $exit_code -eq 0 ]; then
-    echo "Alle Tests erfolgreich abgeschlossen."
+    echo "Alle Tests und die Erstellung der Dokumentation erfolgreich abgeschlossen."
 else
-    echo "Einige Tests sind fehlgeschlagen."
+    echo "Einige Tests oder die Erstellung der Dokumentation sind fehlgeschlagen."
 fi
 
 exit $exit_code
