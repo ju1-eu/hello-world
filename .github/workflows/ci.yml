@@ -15,11 +15,11 @@ jobs:
 
       - name: Install BasicTeX
         run: |
-          brew install --cask basictex
-          sudo /Library/TeX/texbin/tlmgr path add
-          sudo tlmgr update --self
-          sudo tlmgr install latexmk
-          echo "/Library/TeX/texbin" >> $GITHUB_PATH
+            brew install --cask basictex
+            sudo /Library/TeX/texbin/tlmgr path add
+            sudo tlmgr update --self
+            sudo tlmgr install latexmk
+            echo "/Library/TeX/texbin" >> $GITHUB_PATH
 
       - name: Build
         run: make
@@ -46,6 +46,13 @@ jobs:
         with:
           name: test-results
           path: test_results.txt
+
+      - name: Generate PDF from LaTeX using latexmk
+        run: |
+            export PATH="/Library/TeX/texbin:$PATH"
+            cd Dokumentation/latex/
+            latexmk -pdf refman.tex
+        shell: bash
 
       - name: Upload HTML Documentation
         uses: actions/upload-artifact@v2
