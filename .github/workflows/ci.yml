@@ -13,6 +13,14 @@ jobs:
           brew update
           brew install cppcheck doxygen clang-format
 
+      - name: Install BasicTeX
+        run: |
+          brew install --cask basictex
+          sudo /Library/TeX/texbin/tlmgr path add
+          sudo tlmgr update --self
+          sudo tlmgr install latexmk
+          echo "/Library/TeX/texbin" >> $GITHUB_PATH
+
       - name: Build
         run: make
 
