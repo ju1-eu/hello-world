@@ -13,8 +13,6 @@ jobs:
           brew update
           brew install cppcheck doxygen clang-format
           brew install --cask basictex  # Install LaTeX to PDF conversion
-          tlmgr update --self # Update TeX Live Manager
-          tlmgr install latexmk # Install latexmk for PDF generation
 
       - name: Build
         run: make
