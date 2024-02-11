@@ -1,4 +1,3 @@
-## run_tests.sh
 #!/bin/bash
 
 echo "Beginne Testprozess..."
@@ -15,20 +14,21 @@ fi
 # Liste der Testprogramme
 tests=("rechteck_berechnung_v1Debug" "rechteck_berechnung_v2Debug")
 
-# Eingabe für jeden Test
-inputs=("2\n3" "2\n3")
+# Eingabe für jeden Test - Achte darauf, dass die Eingaben den Anforderungen entsprechen
+inputs=("2.0\n3.0" "2.0\n3.0") # Beide Eingaben als positive Dezimalzahlen
 
 # Durchlaufe alle Testprogramme
 for i in "${!tests[@]}"; do
     test=${tests[$i]}
     input=${inputs[$i]}
     echo "Starte Test für: $test..."
-    if [[ -n "$input" ]]; then
-        echo "Eingabe: $input"
-        echo -e "$input" | ./$test
-    else
-        ./$test
-    fi
+    # Ausgabe der Eingabe zur Überprüfung
+    echo -e "Eingabe, die an das Programm weitergeleitet wird:\n$input"
+
+    # Verwende printf statt echo -e für konsistentere Handhabung der Eingaben
+    printf "$input" | ./$test
+
+    # Überprüfung des Exit-Codes des zuletzt ausgeführten Befehls
     if [ $? -eq 0 ]; then
         echo "$test erfolgreich abgeschlossen."
     else
@@ -46,4 +46,3 @@ else
 fi
 
 exit $exit_code
-
