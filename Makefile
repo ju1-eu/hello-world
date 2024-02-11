@@ -47,7 +47,7 @@ clean:
 
 # Test-Regel hinzugefügt, um das Testskript auszuführen
 test: all
-	./run_test.sh
+	./run_tests.sh
 
 # Spezielle Ziele, die keine Dateien sind
 .PHONY: all clean test
