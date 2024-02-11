@@ -14,7 +14,7 @@ jobs:
           brew install cppcheck doxygen clang-format
 
       - name: Add TeX Live to PATH
-        run: echo "/usr/local/texlive/$(basename $(ls -d /usr/local/texlive/* | grep -E '^[0-9]{4}$' | sort | tail -n 1))/bin/universal-darwin" >> $GITHUB_PATH
+        run: echo "/usr/local/texlive/2023/bin/universal-darwin" >> $GITHUB_PATH
 
       - name: Build
         run: make
