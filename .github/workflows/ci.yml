@@ -12,6 +12,7 @@ jobs:
         run: |
           brew update
           brew install cppcheck doxygen clang-format
+          brew install --cask mactex  # Install MacTeX for LaTeX to PDF conversion
 
       - name: Build
         run: make
@@ -24,6 +25,12 @@ jobs:
 
       - name: Generate documentation
         run: doxygen Doxyfile
+
+      - name: Generate PDF from LaTeX
+        run: |
+          cd Dokumentation/latex/
+          make
+        shell: bash
 
       - name: Code Quality Check
         run: cppcheck --enable=all --suppress=missingIncludeSystem $(find . -name '*.c')
@@ -50,4 +57,10 @@ jobs:
         with:
           name: latex-documentation
           path: Dokumentation/latex/
+
+      - name: Upload PDF Documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf-documentation
+          path: Dokumentation/latex/refman.pdf
 
