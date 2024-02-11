@@ -1,8 +1,26 @@
-// datentypen_ueberlauf.c
-// Datentyp überlauf
+/**
+ * @file datentypen_ueberlauf.c
+ * @brief Demonstration des Überlaufs bei einem unsigned short Datentyp.
+ *
+ * Dieses Programm zeigt, was passiert, wenn ein unsigned short Datentyp
+ * seinen maximalen Wert überschreitet und wieder bei 0 anfängt. Es setzt
+ * den Wert nahe am maximalen Wert, erhöht ihn in einer Schleife und zeigt
+ * den Überlauf.
+ */
+
 #include <limits.h>
 #include <stdio.h>
 
+/**
+ * @brief Hauptfunktion, demonstriert den Überlauf bei einem unsigned short.
+ *
+ * Beginnt mit einem Wert nahe dem maximalen Wert für unsigned short und
+ * erhöht diesen in einer Schleife mehrmals, um zu zeigen, wie der Wert nach
+ * Erreichen des maximalen Wertes auf 0 zurückgesetzt wird und von vorne
+ * beginnt.
+ *
+ * @return int Rückgabewert des Programms. 0 für erfolgreiches Beenden.
+ */
 int main(void) {
   // Deklaration eines unsigned short
   unsigned short uShort = USHRT_MAX - 2; // Setzen nahe am maximalen Wert
@@ -18,11 +36,3 @@ int main(void) {
 
   return 0;
 }
-/*
-Anfangswert von uShort: 65533
-Aktueller Wert von uShort: 65534
-Aktueller Wert von uShort: 65535
-Aktueller Wert von uShort: 0
-Aktueller Wert von uShort: 1
-Aktueller Wert von uShort: 2
-*/

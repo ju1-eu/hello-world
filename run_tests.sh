@@ -1,3 +1,4 @@
+## run_tests.sh
 #!/bin/bash
 
 echo "Beginne Testprozess..."

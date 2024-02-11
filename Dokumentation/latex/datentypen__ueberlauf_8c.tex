@@ -1,0 +1,37 @@
+\doxysection{datentypen\+\_\+ueberlauf.\+c File Reference}
+\hypertarget{datentypen__ueberlauf_8c}{}\label{datentypen__ueberlauf_8c}\index{datentypen\_ueberlauf.c@{datentypen\_ueberlauf.c}}
+
+
+Demonstration des Überlaufs bei einem unsigned short Datentyp.  
+
+
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{datentypen__ueberlauf_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Hauptfunktion, demonstriert den Überlauf bei einem unsigned short. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Demonstration des Überlaufs bei einem unsigned short Datentyp. 
+
+Dieses Programm zeigt, was passiert, wenn ein unsigned short Datentyp seinen maximalen Wert überschreitet und wieder bei 0 anfängt. Es setzt den Wert nahe am maximalen Wert, erhöht ihn in einer Schleife und zeigt den Überlauf. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{datentypen__ueberlauf_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{datentypen__ueberlauf_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{datentypen\_ueberlauf.c@{datentypen\_ueberlauf.c}!main@{main}}
+\index{main@{main}!datentypen\_ueberlauf.c@{datentypen\_ueberlauf.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Hauptfunktion, demonstriert den Überlauf bei einem unsigned short. 
+
+Beginnt mit einem Wert nahe dem maximalen Wert für unsigned short und erhöht diesen in einer Schleife mehrmals, um zu zeigen, wie der Wert nach Erreichen des maximalen Wertes auf 0 zurückgesetzt wird und von vorne beginnt.
+
+\begin{DoxyReturn}{Returns}
+int Rückgabewert des Programms. 0 für erfolgreiches Beenden. 
+\end{DoxyReturn}

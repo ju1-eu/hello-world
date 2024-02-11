@@ -1,0 +1,55 @@
+\doxysection{rechteck\+\_\+berechnung\+\_\+v2.\+c File Reference}
+\hypertarget{rechteck__berechnung__v2_8c}{}\label{rechteck__berechnung__v2_8c}\index{rechteck\_berechnung\_v2.c@{rechteck\_berechnung\_v2.c}}
+
+
+Berechnet Umfang und Fläche eines Rechtecks mit validierter Benutzereingabe.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{rechteck__berechnung__v2_8c_a9e4f71ad505d4ada93ec55acfab9d1db}{bereinige\+Eingabe\+Puffer}} ()
+\begin{DoxyCompactList}\small\item\em Bereinigt den Eingabepuffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rechteck__berechnung__v2_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Hauptfunktion, die die Benutzereingaben entgegennimmt, validiert und die Berechnungen durchführt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Berechnet Umfang und Fläche eines Rechtecks mit validierter Benutzereingabe. 
+
+Dieses Programm fordert den Benutzer auf, die Längen der Seiten eines Rechtecks einzugeben, validiert die Eingaben als positive Dezimalzahlen und berechnet dann den Umfang und die Fläche des Rechtecks. Ungültige Eingaben führen zu einer erneuten Eingabeaufforderung. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rechteck__berechnung__v2_8c_a9e4f71ad505d4ada93ec55acfab9d1db}\label{rechteck__berechnung__v2_8c_a9e4f71ad505d4ada93ec55acfab9d1db} 
+\index{rechteck\_berechnung\_v2.c@{rechteck\_berechnung\_v2.c}!bereinigeEingabePuffer@{bereinigeEingabePuffer}}
+\index{bereinigeEingabePuffer@{bereinigeEingabePuffer}!rechteck\_berechnung\_v2.c@{rechteck\_berechnung\_v2.c}}
+\doxysubsubsection{\texorpdfstring{bereinigeEingabePuffer()}{bereinigeEingabePuffer()}}
+{\footnotesize\ttfamily void bereinige\+Eingabe\+Puffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Bereinigt den Eingabepuffer. 
+
+Diese Funktion entfernt alle übrig gebliebenen Zeichen aus dem Eingabepuffer bis zum nächsten Zeilenumbruch oder EOF. Sie wird verwendet, um den Puffer nach einer ungültigen Eingabe zu bereinigen, damit nachfolgende Leseversuche nicht fehlschlagen. \Hypertarget{rechteck__berechnung__v2_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{rechteck__berechnung__v2_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{rechteck\_berechnung\_v2.c@{rechteck\_berechnung\_v2.c}!main@{main}}
+\index{main@{main}!rechteck\_berechnung\_v2.c@{rechteck\_berechnung\_v2.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Hauptfunktion, die die Benutzereingaben entgegennimmt, validiert und die Berechnungen durchführt. 
+
+Fordert den Benutzer zur Eingabe der Längen von zwei Seiten eines Rechtecks auf und validiert diese Eingaben. Berechnet dann den Umfang und die Fläche des Rechtecks mit den Formeln\+: Umfang = 2 \texorpdfstring{$\ast$}{*} (seite\+\_\+a + seite\+\_\+b) Flächeninhalt = seite\+\_\+a \texorpdfstring{$\ast$}{*} seite\+\_\+b und gibt die berechneten Werte aus.
+
+\begin{DoxyReturn}{Returns}
+int Rückgabewert des Programms. 0 für erfolgreiches Beenden. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Länge der Seite A des Rechtecks.
+
+\texorpdfstring{$<$}{<} Länge der Seite B des Rechtecks.
+
+\texorpdfstring{$<$}{<} Berechneter Umfang des Rechtecks.
+
+\texorpdfstring{$<$}{<} Berechneter Flächeninhalt des Rechtecks.
