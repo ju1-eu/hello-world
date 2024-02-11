@@ -1,0 +1,81 @@
+\chapter{Projektname}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Projektname@{Projektname}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ Eine kurze Beschreibung Ihres Projekts. Dies sollte das Hauptziel und den Zweck Ihres Projekts klar umreißen.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Einleitung}{Einleitung}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Geben Sie eine detailliertere Beschreibung Ihres Projekts. Erklären Sie, was dieses Projekt macht und warum es nützlich ist.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md__r_e_a_d_m_e_autotoc_md2}
+Beschreiben Sie die Schritte zur Installation Ihres Projekts.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/ju1-\/eu/hello-\/world.git}
+\DoxyCodeLine{cd\ hello-\/world}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Verwendung}{Verwendung}}\label{md__r_e_a_d_m_e_autotoc_md3}
+Zeigen Sie, wie das Projekt verwendet wird. Erklären Sie die verschiedenen Funktionen und wie sie genutzt werden können.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Entwickeln\ auf\ Feature-\/Branches}
+\DoxyCodeLine{\#\ Dokumentationsupdates\ auf\ docs/update-\/readme}
+\DoxyCodeLine{\#\ Erstellen\ eines\ Branches\ für\ Dokumentationsupdates:}
+\DoxyCodeLine{git\ branch\ -\/a}
+\DoxyCodeLine{git\ log\ -\/-\/oneline\ -\/-\/graph\ -\/-\/all}
+\DoxyCodeLine{git\ checkout\ dev}
+\DoxyCodeLine{git\ checkout\ -\/b\ docs/update-\/readme}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Durchführen\ von\ Änderungen\ an\ der\ Dokumentation:}
+\DoxyCodeLine{vim\ README.md}
+\DoxyCodeLine{vim\ .gitignore}
+\DoxyCodeLine{git\ add\ .}
+\DoxyCodeLine{git\ commit\ -\/m\ "{}Update\ README\ und\ .gitignore\ mit\ neuen\ Informationen"{}}
+\DoxyCodeLine{git\ status}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Pushen\ des\ Dokumentationsbranches:}
+\DoxyCodeLine{git\ push\ -\/-\/set-\/upstream\ origin\ docs/update-\/readme}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Erstellen\ eines\ Pull\ Requests\ von\ \`{}dev`\ nach\ \`{}main`}
+\DoxyCodeLine{\#\ Mergen\ des\ Dokumentationsbranches\ in\ \`{}dev`:}
+\DoxyCodeLine{git\ checkout\ dev}
+\DoxyCodeLine{git\ pull\ origin\ main}
+\DoxyCodeLine{git\ merge\ docs/update-\/readme}
+\DoxyCodeLine{git\ push\ origin\ dev}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Erstellen\ des\ Pull\ Requests\ von\ \`{}dev`\ nach\ \`{}main`:}
+\DoxyCodeLine{gh\ pr\ create\ -\/-\/base\ main\ -\/-\/head\ dev\ -\/-\/title\ "{}Aktualisierung\ der\ Dokumentation"{}\ -\/-\/body\ "{}Fügt\ detaillierte\ Informationen\ zur\ README\ hinzu."{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Merge\ des\ Pull\ Requests:}
+\DoxyCodeLine{\#\ Liste\ aller\ offenen\ Pull\ Requests\ anzeigen\ [PR-\/Nummer]}
+\DoxyCodeLine{gh\ pr\ list}
+\DoxyCodeLine{gh\ pr\ view\ 2}
+\DoxyCodeLine{\#gh\ pr\ view\ 2\ -\/-\/web}
+\DoxyCodeLine{\#\ Code-\/Review\ durchführen}
+\DoxyCodeLine{\#\ Genehmigen\ eines\ Pull\ Requests}
+\DoxyCodeLine{gh\ pr\ review\ 2\ -\/-\/approve}
+\DoxyCodeLine{\#\ PR\ ablehnen}
+\DoxyCodeLine{\#gh\ pr\ review\ 2\ -\/-\/request-\/changes\ "{}Bitte\ Code\ überprüfen"{}}
+\DoxyCodeLine{gh\ pr\ merge\ 2}
+\DoxyCodeLine{gh\ pr\ view\ 2}
+\DoxyCodeLine{\#\ Löschen\ des\ Feature-\/Branches:}
+\DoxyCodeLine{git\ branch\ -\/d\ docs/update-\/readme}
+\DoxyCodeLine{git\ push\ origin\ -\/-\/delete\ docs/update-\/readme}
+\DoxyCodeLine{git\ branch\ -\/a}
+\DoxyCodeLine{git\ log\ -\/-\/oneline\ -\/-\/graph\ -\/-\/all}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Regelmäßige\ Updates\ und\ Synchronisation}
+\DoxyCodeLine{git\ checkout\ main}
+\DoxyCodeLine{git\ pull\ origin\ main}
+\DoxyCodeLine{git\ checkout\ dev}
+\DoxyCodeLine{git\ push\ origin\ dev}
+\DoxyCodeLine{git\ merge\ main}
+\DoxyCodeLine{git\ branch\ -\/a}
+\DoxyCodeLine{git\ log\ -\/-\/oneline\ -\/-\/graph\ -\/-\/all}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Mitwirken}{Mitwirken}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Pull Requests sind willkommen. Für größere Änderungen öffnen Sie bitte zuerst ein Issue, um zu besprechen, was Sie ändern möchten.\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Lizenz}{Lizenz}}\label{md__r_e_a_d_m_e_autotoc_md5}
+\href{https://choosealicense.com/licenses/mit/}{\texttt{ MIT}}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Kontakt}{Kontakt}}\label{md__r_e_a_d_m_e_autotoc_md6}
+Jan Unger – \href{https://bw-ju.de/}{\texttt{ Website}} – \href{mailto:esel573@gmail.com}{\texttt{ esel573@gmail.\+com}}
+
+Projektlink\+: \href{https://github.com/ju1-eu/hello-world}{\texttt{ https\+://github.\+com/ju1-\/eu/hello-\/world}} 
