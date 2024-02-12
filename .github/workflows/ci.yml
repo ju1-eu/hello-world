@@ -11,7 +11,10 @@ jobs:
       - name: Setup environment
         run: |
           brew update
-          brew install cppcheck doxygen clang-format
+          brew install cppcheck doxygen clang-format graphviz
+
+      - name: Set Graphviz Path
+        run: echo "/usr/local/Cellar/graphviz/$(ls /usr/local/Cellar/graphviz)/bin" >> $GITHUB_PATH
 
       - name: Build
         run: make
