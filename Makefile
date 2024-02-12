@@ -54,6 +54,7 @@ test: all
 
 docs:
 	doxygen Doxyfile
+	cd Dokumentation/latex/ && latexmk -pdf refman.tex && cd ../..
 
 quality:
 	cppcheck --enable=all --suppress=missingIncludeSystem $(SRCS)
