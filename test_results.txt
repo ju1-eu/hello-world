@@ -1,0 +1,23 @@
+Beginne Testprozess...
+make[1]: Nothing to be done for `all'.
+Starte Test für: rechteck_berechnung_v1Debug...
+Eingabe, die an das Programm weitergeleitet wird:
+2.0
+3.0
+Berechnet den Umfang und Fläche eines Rechtecks
+Eingabe Zahl 1 = Eingabe Zahl 2 = Umfang: 10.000000
+Flächeninhalt: 6.000000
+
+rechteck_berechnung_v1Debug erfolgreich abgeschlossen.
+-----------------------------------
+Starte Test für: rechteck_berechnung_v2Debug...
+Eingabe, die an das Programm weitergeleitet wird:
+2.0
+3.0
+Berechnet den Umfang und die Fläche eines Rechtecks
+Geben Sie die Länge der Seite A ein (positive Dezimalzahl): Geben Sie die Länge der Seite B ein (positive Dezimalzahl): Umfang: 10.0
+Flächeninhalt: 6.0
+
+rechteck_berechnung_v2Debug erfolgreich abgeschlossen.
+-----------------------------------
+Alle Tests erfolgreich abgeschlossen.
